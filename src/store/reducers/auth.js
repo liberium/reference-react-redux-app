@@ -1,9 +1,16 @@
 import { handleActions, combineActions } from 'redux-actions'
-import { login, logout, register, resetPassword, changeCredentials } from '@src/store/actions'
+import {
+  login,
+  logout,
+  register,
+  resetPassword,
+  requestResetPasswordLink,
+  changeCredentials
+} from '@src/store/actions'
 
 const initialState = {
-  userFullName: null,
-  userEmail: null,
+  userFullName: undefined,
+  userEmail: undefined,
   loading: false,
   error: null
 }
@@ -15,6 +22,7 @@ const authReducer = handleActions(
       logout.START,
       register.START,
       resetPassword.START,
+      requestResetPasswordLink.START,
       changeCredentials.START
     )]: state => ({ ...state, loading: true }),
     [login.SUCCEEDED]: (
@@ -30,7 +38,16 @@ const authReducer = handleActions(
       userEmail: email
     }),
     [logout.SUCCEEDED]: state => ({ ...state, userFullName: null, userEmail: null }),
-    [register.SUCCEEDED]: state => ({ ...state }),
+    [register.SUCCEEDED]: (
+      state,
+      {
+        payload: {
+          data: {
+            data: { name, email }
+          }
+        }
+      }
+    ) => ({ ...state, userFullName: name, userEmail: email }),
     [resetPassword.SUCCEEDED]: state => ({ ...state }),
     [changeCredentials.SUCCEEDED]: state => ({ ...state }),
     [combineActions(
@@ -38,6 +55,7 @@ const authReducer = handleActions(
       logout.FAILED,
       register.FAILED,
       resetPassword.FAILED,
+      requestResetPasswordLink.FAILED,
       changeCredentials.FAILED
     )]: (state, { error: { data: error } }) => ({ ...state, error }),
     [combineActions(
@@ -45,6 +63,7 @@ const authReducer = handleActions(
       logout.ENDED,
       register.ENDED,
       resetPassword.ENDED,
+      requestResetPasswordLink.ENDED,
       changeCredentials.ENDED
     )]: state => ({ ...state, loading: false })
   },
