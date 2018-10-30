@@ -11,7 +11,8 @@
     "react-scripts": "2.0.5",
     "redux": "^4.0.1",
     "redux-action": "^1.2.2",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "yup": "^0.26.6"
   },
   "scripts": {
     "start": "react-scripts start",
