@@ -1,8 +1,8 @@
 import { handleActions, combineActions } from 'redux-actions'
 import {
-  login,
-  logout,
-  register,
+  signIn,
+  signOut,
+  signUp,
   resetPassword,
   requestResetPasswordLink,
   changeCredentials
@@ -18,14 +18,14 @@ const initialState = {
 const auth = handleActions(
   {
     [combineActions(
-      login.START,
-      logout.START,
-      register.START,
+      signIn.START,
+      signOut.START,
+      signUp.START,
       resetPassword.START,
       requestResetPasswordLink.START,
       changeCredentials.START
     )]: state => ({ ...state, loading: true }),
-    [login.SUCCEEDED]: (
+    [signIn.SUCCEEDED]: (
       state,
       {
         payload: {
@@ -37,8 +37,8 @@ const auth = handleActions(
       userFullName: name,
       userEmail: email
     }),
-    [logout.SUCCEEDED]: state => ({ ...state, userFullName: null, userEmail: null }),
-    [register.SUCCEEDED]: (
+    [signOut.SUCCEEDED]: state => ({ ...state, userFullName: null, userEmail: null }),
+    [signUp.SUCCEEDED]: (
       state,
       {
         payload: {
@@ -51,17 +51,17 @@ const auth = handleActions(
     [resetPassword.SUCCEEDED]: state => ({ ...state }),
     [changeCredentials.SUCCEEDED]: state => ({ ...state }),
     [combineActions(
-      login.FAILED,
-      logout.FAILED,
-      register.FAILED,
+      signIn.FAILED,
+      signOut.FAILED,
+      signUp.FAILED,
       resetPassword.FAILED,
       requestResetPasswordLink.FAILED,
       changeCredentials.FAILED
     )]: (state, { error: { data: error } }) => ({ ...state, error }),
     [combineActions(
-      login.ENDED,
-      logout.ENDED,
-      register.ENDED,
+      signIn.ENDED,
+      signOut.ENDED,
+      signUp.ENDED,
       resetPassword.ENDED,
       requestResetPasswordLink.ENDED,
       changeCredentials.ENDED
