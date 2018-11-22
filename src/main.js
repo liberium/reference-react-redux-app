@@ -1,7 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import { BrowserRouter as Router } from 'react-router-dom'
+import store from 'store'
 import { App } from 'components'
 
-const appRef = ReactDOM.render(<App />, document.getElementById('reference-react-redux-app-root'))
+const appRef = ReactDOM.render(
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>,
+  document.getElementById('reference-react-redux-app-root')
+)
 
 export default appRef
