@@ -9,6 +9,7 @@
     "lodash": "^4.17.11",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-intl": "^2.7.2",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.5",
@@ -23,7 +24,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "extract-messages": "react-intl-cra 'src/**/*.js' -o 'src/i18n/messages.json'",
+    "manage-translations": "node scripts/manage-translations.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,6 +43,8 @@
     "singleQuote": true
   },
   "devDependencies": {
-    "prettier": "^1.14.3"
+    "prettier": "^1.14.3",
+    "react-intl-cra": "^0.3.3",
+    "react-intl-translations-manager": "^5.0.3"
   }
 }

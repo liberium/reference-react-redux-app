@@ -5,7 +5,7 @@ import { SignInFormContainer, SignUpFormContainer } from 'containers'
 
 export default function App() {
   return (
-    <>
+    <React.Fragment>
       <Header />
       <Sidebar />
       <Main>
@@ -16,6 +16,6 @@ export default function App() {
         <Route path="/sign-up" component={SignUpFormContainer} />
       </Main>
       <Footer />
-    </>
+    </React.Fragment>
   )
 }
