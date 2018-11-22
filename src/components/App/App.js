@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import { Header, Sidebar, Main, Footer } from 'components'
-import { LoginFormContainer } from 'containers'
+import { SignInFormContainer, SignUpFormContainer } from 'containers'
 
 export default function App() {
   return (
@@ -10,10 +10,10 @@ export default function App() {
       <Sidebar />
       <Main>
         <Route exact path="/">
-          <Redirect to="/login" />
+          <Redirect to="/sign-in" />
         </Route>
-        <Route path="/login" component={LoginFormContainer} />
-        <Route path="/register" component={LoginFormContainer} />
+        <Route path="/sign-in" component={SignInFormContainer} />
+        <Route path="/sign-up" component={SignUpFormContainer} />
       </Main>
       <Footer />
     </>
