@@ -1,6 +1,6 @@
 import React from 'react'
 import { withFormik } from 'formik'
-import Yup from 'yup'
+import * as yup from 'yup'
 
 function LoginForm(props) {
   const {
@@ -60,8 +60,9 @@ function LoginForm(props) {
 
 export default withFormik({
   mapPropsToValues: () => ({ email: '' }),
-  validationSchema: Yup.object().shape({
-    email: Yup.string()
+  validationSchema: yup.object().shape({
+    email: yup
+      .string()
       .email('Invalid email address')
       .required('Email is required!')
   }),
