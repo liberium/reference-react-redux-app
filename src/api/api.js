@@ -1,7 +1,7 @@
-import _ from 'lodash'
-import * as mixins from './mixins'
+import { compose } from 'lodash/fp'
+import mixins from './mixins'
 
-const MixinComposition = _.compose(...mixins)
+const MixinComposition = compose(...mixins)
 
 class Api extends MixinComposition(Object) {
   baseUrl = 'https://domain.com/api/v3'
