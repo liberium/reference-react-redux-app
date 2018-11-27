@@ -8,11 +8,13 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <Route exact path="/">
-          <Redirect to="/login" />
-        </Route>
-        <Route path="/login" component={LoginScreen} />
-        <Route path="/register" component={LoginScreen} />
+        <>
+          <Route exact path="/">
+            <Redirect to="/login" />
+          </Route>
+          <Route path="/login" component={LoginScreen} />
+          <Route path="/register" component={LoginScreen} />
+        </>
       </Router>
     </Provider>
   )
