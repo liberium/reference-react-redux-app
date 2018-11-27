@@ -15,7 +15,7 @@ const initialState = {
   error: null
 }
 
-const authReducer = handleActions(
+const auth = handleActions(
   {
     [combineActions(
       login.START,
@@ -70,4 +70,4 @@ const authReducer = handleActions(
   initialState
 )
 
-export default authReducer
+export default auth
