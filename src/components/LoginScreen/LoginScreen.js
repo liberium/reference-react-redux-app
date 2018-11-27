@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { LoginForm } from '@src/components'
+import { LoginForm } from 'components'
 
 function LoginScreen() {
   return <LoginForm />

@@ -1,5 +1,5 @@
 import { createActionThunk } from 'redux-thunk-actions'
-import api from '@src/api'
+import api from 'api'
 
 export const login = createActionThunk('LOGIN', credentials => api.login(credentials))
 export const logout = createActionThunk('LOGOUT', api.logout)

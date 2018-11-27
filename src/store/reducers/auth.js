@@ -6,7 +6,7 @@ import {
   resetPassword,
   requestResetPasswordLink,
   changeCredentials
-} from '@src/store/actions'
+} from 'store/actions'
 
 const initialState = {
   userFullName: undefined,

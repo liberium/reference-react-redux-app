@@ -1,7 +1,8 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
-import { LoginScreen } from '@src/components'
+import store from 'store'
+import { LoginScreen } from 'components'
 
 function App() {
   return (

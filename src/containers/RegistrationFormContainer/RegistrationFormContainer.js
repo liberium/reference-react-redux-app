@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
-import { register } from '@src/store/actions'
-import { RegistrationForm } from '@src/components'
+import { register } from 'store/actions'
+import { RegistrationForm } from 'components'
 
 export default connect(
   null,
