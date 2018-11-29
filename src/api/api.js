@@ -10,24 +10,24 @@ class Api extends MixinComposition(Object) {
     return `${this.baseUrl}${path}`
   }
 
-  requestApi(path, options) {
+  request(path, options) {
     return fetch(this.makeUrl(path), options)
   }
 
   get(path, options) {
-    return this.requestApi(path, { method: 'get', ...options })
+    return this.request(path, { method: 'get', ...options })
   }
 
   post(path, options) {
-    return this.requestApi(path, { method: 'post', ...options })
+    return this.request(path, { method: 'post', ...options })
   }
 
   put(path, options) {
-    return this.requestApi(path, { method: 'put', ...options })
+    return this.request(path, { method: 'put', ...options })
   }
 
   delete(path, options) {
-    return this.requestApi(path, { method: 'delete', ...options })
+    return this.request(path, { method: 'delete', ...options })
   }
 }
 

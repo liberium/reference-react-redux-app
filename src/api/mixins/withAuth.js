@@ -1,5 +1,5 @@
-const withAuth = sup =>
-  class extends sup {
+export default function withAuth(superclass) {
+  return class extends superclass {
     signIn(credentials) {
       return this.post('/sign-in', credentials)
     }
@@ -24,5 +24,4 @@ const withAuth = sup =>
       return this.post('/users/me/change-credentials', newCredentials)
     }
   }
-
-export default withAuth
+}
