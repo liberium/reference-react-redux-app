@@ -8,7 +8,7 @@ import store from 'store'
 import { App } from 'components'
 import translations from 'i18n'
 
-addLocaleData([...en, ...ru])
+addLocaleData({ ...en, ...ru })
 
 const locale =
   (navigator.languages && navigator.languages[0]) || navigator.language || navigator.userLanguage
