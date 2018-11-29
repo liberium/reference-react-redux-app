@@ -1,23 +1,21 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
-import store from 'store'
-import { LoginScreen } from 'components'
+import { Route, Redirect } from 'react-router-dom'
+import { Header, Sidebar, Main, Footer } from 'components'
+import { SignInFormContainer, SignUpFormContainer } from 'containers'
 
-function App() {
+export default function App() {
   return (
-    <Provider store={store}>
-      <Router>
-        <>
-          <Route exact path="/">
-            <Redirect to="/login" />
-          </Route>
-          <Route path="/login" component={LoginScreen} />
-          <Route path="/register" component={LoginScreen} />
-        </>
-      </Router>
-    </Provider>
+    <React.Fragment>
+      <Header />
+      <Sidebar />
+      <Main>
+        <Route exact path="/">
+          <Redirect to="/sign-in" />
+        </Route>
+        <Route path="/sign-in" component={SignInFormContainer} />
+        <Route path="/sign-up" component={SignUpFormContainer} />
+      </Main>
+      <Footer />
+    </React.Fragment>
   )
 }
-
-export default App

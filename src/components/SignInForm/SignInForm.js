@@ -2,7 +2,7 @@ import React from 'react'
 import { withFormik } from 'formik'
 import * as yup from 'yup'
 
-function RegistrationForm(props) {
+function SignInForm(props) {
   const {
     values,
     touched,
@@ -72,5 +72,5 @@ export default withFormik({
       setSubmitting(false)
     }, 1000)
   },
-  displayName: 'RegistrationForm'
-})(RegistrationForm)
+  displayName: 'SignInForm'
+})(SignInForm)

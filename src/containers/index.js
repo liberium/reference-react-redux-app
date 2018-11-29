@@ -1,3 +1,2 @@
-export { default as LoginScreen } from './LoginScreen'
-export { default as RegistrationScreen } from './RegistrationScreen'
-export { default as RegistrationFormContainer } from './RegistrationFormContainer'
+export { default as SignInFormContainer } from './SignInFormContainer'
+export { default as SignUpFormContainer } from './SignUpFormContainer'

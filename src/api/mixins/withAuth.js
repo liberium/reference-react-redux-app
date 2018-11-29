@@ -1,27 +1,27 @@
 const withAuth = sup =>
   class extends sup {
-    login(credentials) {
-      return this.post('/login', credentials)
+    signIn(credentials) {
+      return this.post('/sign-in', credentials)
     }
 
-    logout() {
-      return this.post('/logout')
+    signOut() {
+      return this.post('/sign-out')
     }
 
-    register(user) {
-      return this.post('/register', user)
+    signUp(user) {
+      return this.post('/sign-up', user)
     }
 
     resetPassword(newPasswordWithToken) {
-      return this.post('/password/reset', newPasswordWithToken)
+      return this.post('/reset-password', newPasswordWithToken)
     }
 
     requestResetPasswordLink(email) {
-      return this.post('/password/email', email)
+      return this.post('/request-reset-password-link', email)
     }
 
     changeCredentials(newCredentials) {
-      return this.post('/profile', newCredentials)
+      return this.post('/users/me/change-credentials', newCredentials)
     }
   }
 
