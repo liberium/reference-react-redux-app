@@ -37,6 +37,9 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "eslintIgnore": [
+    "build/"
+  ],
   "browserslist": [
     ">0.2%",
     "not dead",
