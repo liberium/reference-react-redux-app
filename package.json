@@ -3,6 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "main": "src/index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "extract-messages": "react-intl-cra 'src/**/*.js' -o src/i18n/messages.json",
+    "manage-translations": "node scripts/manage-translations.js"
+  },
   "dependencies": {
     "flux-standard-action": "^2.0.3",
     "formik": "^1.3.2",
@@ -20,13 +28,11 @@
     "redux-thunk-actions": "^1.2.1",
     "yup": "^0.26.6"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "extract-messages": "react-intl-cra 'src/**/*.js' -o 'src/i18n/messages.json'",
-    "manage-translations": "node scripts/manage-translations.js"
+  "devDependencies": {
+    "husky": "^1.2.0",
+    "prettier": "^1.14.3",
+    "react-intl-cra": "^0.3.3",
+    "react-intl-translations-manager": "^5.0.3"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -42,9 +48,10 @@
     "semi": false,
     "singleQuote": true
   },
-  "devDependencies": {
-    "prettier": "^1.14.3",
-    "react-intl-cra": "^0.3.3",
-    "react-intl-translations-manager": "^5.0.3"
+  "husky": {
+    "hooks": {
+      "pre-commit": "eslint . && jest --passWithNoTests --lastCommit",
+      "pre-push": "yarn build"
+    }
   }
 }
