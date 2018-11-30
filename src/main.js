@@ -16,7 +16,7 @@ const locale =
 const localeWithoutRegionCode = locale.toLowerCase().split(/[_-]+/)[0]
 
 /* Try full locale; try locale without region code; fallback to 'en'. */
-const messages = translations[localeWithoutRegionCode] || translations[locale] || translations.en
+const messages = translations[locale] || translations[localeWithoutRegionCode] || translations.en
 
 const appRef = ReactDOM.render(
   <IntlProvider locale={locale} messages={messages}>
